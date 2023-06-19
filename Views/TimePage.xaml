@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_4ps.Views.TimePage"
+             Title="TimePage">
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding TimeOffList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="200,200,200">
+                        <Label Text="{Binding Name}" Grid.Column="0" />
+                        <DatePicker Grid.Column="1" Format="dd-MM-yyyy" Date="{Binding StartDate}" />
+                        <DatePicker Grid.Column="2" Format="dd-MM-yyyy" Date="{Binding EndDate}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Check overlap" Command="{Binding CheckOverlapCommand}" />
+    </VerticalStackLayout>
+</ContentPage>
